@@ -76,4 +76,15 @@ app.get('/pythagorasanswer', (req, res) => {
   app.listen(port, () => {
     console.log(`example app listening on port http://localhost:${port}`)
   });
+
+  app.get('/movies', async (req, res) => {
+    let movies = await Movie.findAll();
+    
+    res.render('movies/index.njk', { movies });
+  });
+  
+  
+  app.listen(port, () => {
+    console.log(`Example app listening on port http://localhost:${port}`);
+  });
   
